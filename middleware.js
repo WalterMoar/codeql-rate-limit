@@ -1,11 +1,14 @@
+import sqlite3 from "sqlite3";
+import { open } from "sqlite";
+
 const authorization = async (req, _res, next) => {
   try {
-    let token;
-    if (req.headers && req.headers.authorization && req.headers.authorization.startsWith('Bearer ')) {
-      token = req.headers.authorization.substring(7);
-    }
-
-    console.log(token)
+    open({
+      filename: "/tmp/database.db",
+      driver: sqlite3.Database,
+    }).then((db) => {
+      // do your thing
+    });
   } catch (error) {
     next(error);
   }
