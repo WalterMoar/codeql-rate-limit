@@ -9,7 +9,7 @@ var limiter = RateLimit({
 });
 
 // apply rate limiter to all requests
-// app.use(limiter);
+app.use(limiter);
 
 app.get("/", (_req, res) => {
   res.send("Hello World!");
@@ -17,7 +17,7 @@ app.get("/", (_req, res) => {
 
 const router = require("express").Router();
 const middleware = require("./middleware")
-router.get("/", limiter, middleware.authorization, (_req, res) => {
+router.get("/", middleware.authorization, (_req, res) => {
   res.send("Hello World2!");
 });
 app.use("/foo", router);
