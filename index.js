@@ -9,7 +9,7 @@ app.get("/", (_req, res) => {
 const router = require("express").Router();
 const middleware = require("./middleware")
 router.get("/", middleware.authorization, (_req, res) => {
-  res.send("Hello World2!");
+  res.send("Hello World3!");
 });
 app.use("/foo", router);
 
