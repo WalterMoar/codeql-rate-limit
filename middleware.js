@@ -8,7 +8,7 @@ const _openDatabase = () => {
   });
 };
 
-const authorization = async (req, _res, next) => {
+const authorization = async (_req, _res, next) => {
   try {
     const db = await _openDatabase();
     db.exec("SELECT sqlite_version();");
