@@ -17,7 +17,7 @@ app.get("/", (_req, res) => {
 
 const router = require("express").Router();
 const middleware = require("./middleware")
-router.get("/", middleware.authorization, (_req, res) => {
+router.get("/", limiter, middleware.authorization, (_req, res) => {
   res.send("Hello World2!");
 });
 app.use("/foo", router);

@@ -18,7 +18,6 @@ const authorization = async (_req, _res, next) => {
   }
 };
 
-const rateLimiter = async()
 module.exports = {
   authorization,
 };
