@@ -15,6 +15,11 @@ app.get("/", (_req, res) => {
   res.send("Hello World!");
 });
 
+const v1Routes = require('./apiv1');
+const apiRouter = express.Router();
+apiRouter.use('/api/v1', v1Routes);
+app.use(apiRouter);
+
 const router = require("express").Router();
 const middleware = require("./middleware")
 router.get("/", middleware.authorization, (_req, res) => {
